@@ -1,9 +1,12 @@
-module "aws_sg"{
+module "sg"{
 
-  source = "terraform-aws-modules/security-group/aws//modules/http-80"
-
-  name        = "web-server"
-  description = "Security group for web-server with HTTP ports open within VPC"
-  vpc_id      = "vpc-12345678"
+  count = length(var.sg_names)
+  source = "git::https://github.com/SomeshwarSangaraju/terraform-aws-sg.git"
+  project_name = var.project_name
+  environment = var.environment
+  sg_name = var.sg_names[count.index]
+  sg_description = "Created for ${var.sg_names[count.index]}"
+  vpc_id =  local.vpc_id
 
 }
+

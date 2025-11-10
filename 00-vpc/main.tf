@@ -1,5 +1,5 @@
 
-module "aws_vpc"{
+module "vpc"{
     
     source = "git::https://github.com/SomeshwarSangaraju/terraform-aws-vpc.git?ref=main"
     

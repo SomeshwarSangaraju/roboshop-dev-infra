@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "someshwar-devops-dev"
+    bucket = "someshwar-devops"
     key    = "roboshop-dev-bastion"
     region = "us-east-1"
     use_lockfile = true

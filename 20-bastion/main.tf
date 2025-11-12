@@ -1,11 +1,8 @@
-resource "aws_instance" "bastion_host" {
+resource "aws_instance" "bastion" {
   ami           = local.ami_id
   instance_type = "t3.micro"
 
-   tags = merge (
-        local.common_tags,
-        {
-            Name = "${var.project_name}-${var.environment}-bastion"
-        }
-    )
+  tags = {
+    Name = "HelloWorld"
+  }
 }

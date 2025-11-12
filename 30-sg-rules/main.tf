@@ -1,9 +1,8 @@
-resource "aws_security_group_rule" "sg_rules" {
+resource "aws_security_group_rule" "mongodb_bastion" {
   type              = "ingress"
-  from_port         = 0
-  to_port           = 65535
+  security_group_id = local.mongodb_sg_id
+  source_security_group_id = local.bastion_sg_id
+  from_port         = 22
   protocol          = "tcp"
-#   cidr_blocks       = [aws_vpc.example.cidr_block]
-#   ipv6_cidr_blocks  = [aws_vpc.example.ipv6_cidr_block]
-  security_group_id = "sg-123456"
+  to_port           = 22
 }

@@ -1,3 +1,4 @@
+##### bastion SG RUles #####
 resource "aws_security_group_rule" "mongodb_bastion" {
   type              = "ingress"
   security_group_id = local.mongodb_sg_id
@@ -79,6 +80,7 @@ resource "aws_security_group_rule" "payment_bastion" {
   to_port           = 22
 }
 
+##### mongodb SG RUles #####
 resource "aws_security_group_rule" "mongodb_catalogue" {
   type              = "ingress"
   security_group_id = local.mongodb_sg_id

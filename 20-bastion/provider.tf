@@ -9,7 +9,7 @@ terraform {
     bucket = "someshwar-devops"
     key    = "roboshop-dev-bastion"
     region = "us-east-1"
-    use_lockfile = false
+    use_lockfile = true
     encrypt = true
   }
 }

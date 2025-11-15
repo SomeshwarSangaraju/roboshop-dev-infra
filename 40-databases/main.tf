@@ -18,7 +18,6 @@ resource "terraform_data" "mongodb" {
     aws_instance.mongodb.id
   ]
   connection {
-    # host = element(aws_instance.cluster[*].public_ip, 0)
     type     = "ssh"
     user     = "ec2-user"
     password = "DevOps321"

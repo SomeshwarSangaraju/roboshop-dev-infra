@@ -6,3 +6,10 @@ variable "environment"{
     default="dev"
 }
 
+variable "zone_id"{
+    default=Z01824022CI9F0U27UQFL
+}
+
+variable "domain_name"{
+    default="someshwar.fun"
+}

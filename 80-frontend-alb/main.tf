@@ -1,9 +1,9 @@
 resource "aws_lb" "frontend_alb" {
-  name               = ""
+  name               = "${local.common_suffix_name}-backend-alb"  #roboshop-dev-backend-alb
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.lb_sg.id]
-  subnets            = [for subnet in aws_subnet.public : subnet.id]
+  security_groups    = local.frontend_alb_sg_id
+  subnets            = [local.public_subnet_ids]
 
   enable_deletion_protection = true
 

@@ -2,9 +2,12 @@ resource "aws_acm_certificate" "roboshop" {
   domain_name       = "${var.domain_name}"
   validation_method = "DNS"
 
-  tags = {
-    Environment = "test"
-  }
+  tags = merge(
+    locals.common_tags,
+    {
+        Name="${local.common_suffix_name}"
+    }
+  )
 
   lifecycle {
     create_before_destroy = true

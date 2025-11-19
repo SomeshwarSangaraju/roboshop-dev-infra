@@ -55,3 +55,22 @@ resource "aws_ami_from_instance" "catalogue" {
         }
   )
 }
+
+resource "aws_lb_target_group" "catalogue" {
+  name     = "${local.common_suffix_name}-catalogue"
+  port     = 80
+  protocol = "TCP"
+  vpc_id   = aws_vpc.main.id
+
+  target_group_health {
+    dns_failover {
+      minimum_healthy_targets_count      = "1"
+      minimum_healthy_targets_percentage = "off"
+    }
+
+    unhealthy_state_routing {
+      minimum_healthy_targets_count      = "1"
+      minimum_healthy_targets_percentage = "off"
+    }
+  }
+}

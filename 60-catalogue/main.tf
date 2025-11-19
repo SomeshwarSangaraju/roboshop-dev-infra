@@ -60,17 +60,17 @@ resource "aws_lb_target_group" "catalogue" {
   name     = "${local.common_suffix_name}-catalogue"
   port     = 80
   protocol = "TCP"
-  vpc_id   = aws_vpc.main.id
+  vpc_id   = local.vpc_id
+   deregistration_delay = 60 # waiting period before deleting the instance
 
-  target_group_health {
-    dns_failover {
-      minimum_healthy_targets_count      = "1"
-      minimum_healthy_targets_percentage = "off"
-    }
-
-    unhealthy_state_routing {
-      minimum_healthy_targets_count      = "1"
-      minimum_healthy_targets_percentage = "off"
-    }
+  health_check {
+    healthy_threshold = 2
+    interval = 10
+    matcher = "200-299"
+    path = "/health"
+    port = 8080
+    protocol = "HTTP"
+    timeout = 2
+    unhealthy_threshold = 2
   }
 }

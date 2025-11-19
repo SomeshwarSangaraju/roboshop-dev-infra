@@ -5,7 +5,8 @@ locals{
     private_subnet_ids = split("," , data.aws_ssm_parameter.private_subnet_ids.value)[0]
     vpc_id = data.aws_ssm_parameter.vpc_id.id
     common_tags={
-        project_name="${var.environment}"
-        environment="${var.environment}"
+        Project="${var.environment}"
+        Environment="${var.environment}"
+        Terraform ="true"
     }
 }

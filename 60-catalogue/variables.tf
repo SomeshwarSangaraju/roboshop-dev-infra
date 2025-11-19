@@ -5,3 +5,7 @@ variable "environment"{
 variable "project_name"{
     default= "roboshop"
 }
+
+variable "domain_name"{
+    default ="someshwar.fun"
+}

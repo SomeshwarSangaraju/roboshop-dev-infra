@@ -144,7 +144,7 @@ resource "aws_instance" "mysql" {
 }
 
 resource "aws_iam_instance_profile" "mysql" {
-  name = "mysql"
+  name = "ROBOSHOPMYSQL"
   role = "EC2SSMPARAMETERREAD"
 }
 

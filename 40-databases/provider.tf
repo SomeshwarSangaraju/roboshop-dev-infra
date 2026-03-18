@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "someshwar-devops"
+    bucket = "terraform-86"
     key    = "roboshop-dev-databases"
     region = "us-east-1"
     use_lockfile = true

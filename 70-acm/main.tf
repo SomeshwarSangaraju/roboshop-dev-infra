@@ -28,7 +28,7 @@ resource "aws_route53_record" "roboshop" {
   records         = [each.value.record]
   ttl             = 1
   type            = each.value.type
-  zone_id         = "${var.zone_id}"
+  zone_id         = var.zone_id
 }
 
 # acm certification validation

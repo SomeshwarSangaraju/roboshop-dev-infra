@@ -35,7 +35,7 @@ resource "aws_lb_listener" "frontend_alb" {
 
 resource "aws_route53_record" "frontend_alb" {
   zone_id = var.zone_id
-  name    = "${var.project_name}-${var.project_name}-${var.environment}.${var.domain_name}"
+  name    = "${var.project_name}-${var.environment}.${var.domain_name}"
   type    = "A"
   allow_overwrite = true
 

@@ -2,7 +2,7 @@
 resource "aws_cloudfront_distribution" "roboshop" {
 
    origin {
-    # roboshop-dev.daws86s.fun
+    # roboshop-dev.someshwar.fun
     domain_name = "${var.project_name}-${var.environment}.${var.domain_name}"
     origin_id   = "${var.project_name}-${var.environment}.${var.domain_name}"
     custom_origin_config {
@@ -15,7 +15,7 @@ resource "aws_cloudfront_distribution" "roboshop" {
 
   enabled             = true
 
-   # dev.daws86s.fun
+   # dev.someshwar.fun
   aliases = ["${var.environment}.${var.domain_name}"]
 
  
@@ -75,7 +75,7 @@ resource "aws_cloudfront_distribution" "roboshop" {
 
 resource "aws_route53_record" "cdn" {
   zone_id = var.zone_id
-  name    = "${var.environment}.${var.domain_name}" # dev.daws86s.fun
+  name    = "${var.environment}.${var.domain_name}" # dev.someshwar.fun
   type    = "A"
   allow_overwrite = true
 
